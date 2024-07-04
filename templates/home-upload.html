@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Home</title>
+
+    <!-- Library -->
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='/lib/fontawesome-free/css/all.min.css') }}"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='/lib/icheck-bootstrap/icheck-bootstrap.min.css') }}"
+    />
+
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='/css/main.min.css') }}"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='/css/custom.css') }}"
+    />
+    <!-- <script src="https://mozilla.github.io/pdf.js/build/pdf.js"></script> -->
+    <script
+      type="text/javascript"
+      src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.9.359/pdf.min.js"
+    ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mammoth/1.0.0/mammoth.browser.min.js"></script>
+    <style>
+      #similar-btn {
+        border: none;
+        padding: 8px 18px;
+        font-size: 1.5rem;
+        margin-left: 10px;
+        border-radius: 8px;
+      }
+      .highlight {
+        background-color: yellow;
+        display: inline-block;
+        font-size: 1.2rem;
+        margin-top: 7px;
+        padding: 5px 10px;
+        border-radius: 7px;
+      }
+    </style>
+  </head>
+  <body class="hold-transition sidebar-mini">
+    <div class="wrapper">
+      <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" data-widget="pushmenu" href="#"
+              ><i class="fas fa-bars"></i
+            ></a>
+          </li>
+        </ul>
+
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item dropdown user-menu">
+            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
+              <img
+                src="{{ url_for('static', filename='/img/MEC.png') }}"
+                class="user-image img-circle elevation-2"
+              />
+              <span class="d-none d-md-inline">Admin</span>
+            </a>
+
+            <ul class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+              <li class="user-header bg-purple">
+                <img
+                  src="{{ url_for('static', filename='/img/MEC.png') }}"
+                  class="img-circle elevation-2"
+                  alt="User Image"
+                />
+                <p>
+                  Admin - NOOR RANI , salomi angel
+                  <small>BTECH-ARTIFICIAL INTELLIGENCE AND DATA SCIENCE</small>
+                </p>
+              </li>
+
+              <li class="user-footer">
+                <a
+                  href="#"
+                  id="logout"
+                  class="btn bg-purple btn-flat float-right"
+                  >Sign out</a
+                >
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+
+      <aside class="main-sidebar elevation-4 sidebar-light-purple">
+        <a href="#" class="brand-link navbar-light">
+          <img
+            src="{{ url_for('static', filename='/img/product-hunt-brands.svg') }}"
+            class="brand-image img-circle elevation-3"
+            style="width: 34px"
+          />
+          <span class="brand-text font-weight-light">Plagiarism Detector</span>
+        </a>
+
+        <div class="sidebar">
+          <nav class="mt-2">
+            <ul
+              class="nav nav-pills nav-sidebar flex-column"
+              data-widget="treeview"
+            >
+              <li class="nav-item">
+                <a href="/text" class="nav-link">
+                  <i class="fas fa-file-word nav-icon"></i>
+                  <p>Text</p>
+                </a>
+              </li>
+
+              <li class="nav-item">
+                <a href="/upload" class="nav-link active">
+                  <i class="fas fa-file-upload nav-icon"></i>
+                  <p>Upload</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="/meaning" class="nav-link">
+                  <i class="fas fa-circle-nodes nav-icon"><svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M418.4 157.9c35.3-8.3 61.6-40 61.6-77.9c0-44.2-35.8-80-80-80c-43.4 0-78.7 34.5-80 77.5L136.2 151.1C121.7 136.8 101.9 128 80 128c-44.2 0-80 35.8-80 80s35.8 80 80 80c12.2 0 23.8-2.7 34.1-7.6L259.7 407.8c-2.4 7.6-3.7 15.8-3.7 24.2c0 44.2 35.8 80 80 80s80-35.8 80-80c0-27.7-14-52.1-35.4-66.4l37.8-207.7zM156.3 232.2c2.2-6.9 3.5-14.2 3.7-21.7l183.8-73.5c3.6 3.5 7.4 6.7 11.6 9.5L317.6 354.1c-5.5 1.3-10.8 3.1-15.8 5.5L156.3 232.2z"/></svg></i>
+                  <p>Meaning</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="/code" class="nav-link">
+                  <i class="fas nav-icon"><svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 640 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M392.8 1.2c-17-4.9-34.7 5-39.6 22l-128 448c-4.9 17 5 34.7 22 39.6s34.7-5 39.6-22l128-448c4.9-17-5-34.7-22-39.6zm80.6 120.1c-12.5 12.5-12.5 32.8 0 45.3L562.7 256l-89.4 89.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l112-112c12.5-12.5 12.5-32.8 0-45.3l-112-112c-12.5-12.5-32.8-12.5-45.3 0zm-306.7 0c-12.5-12.5-32.8-12.5-45.3 0l-112 112c-12.5 12.5-12.5 32.8 0 45.3l112 112c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256l89.4-89.4c12.5-12.5 12.5-32.8 0-45.3z"/></svg></i>
+                  <p>Code</p>
+                </a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </aside>
+
+      <div class="content-wrapper">
+        <section class="content-header">
+          <div class="container-fluid">
+            <div class="mb-2">
+              <h1>Upload only .doc OR .docx files</h1>
+            </div>
+          </div>
+        </section>
+        <section class="content">
+          <div class="card">
+            <div class="card-body">
+              <form id="upload-form">
+                <div class="form-group">
+                  <div class="custom-file">
+                    <input
+                      type="file"
+                      class="custom-file-input"
+                      id="customFile"
+                      accept=".doc,.docx,.pdf"
+                      multiple
+                    />
+                    <label class="custom-file-label" for="customFile"
+                      >Choose file</label
+                    >
+                  </div>
+                </div>
+
+                <div class="d-flex justify-content-end mt-4">
+                  <button type="submit" class="btn bg-purple px-5">
+                    Submit
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+          <div class="card" id="card2" style="display: none">
+            <div class="card-body">
+              <div id="threshold" style="display: flex; align-items: center">
+                <h5 style="position: relative; top: 3px">Similarity :</h5>
+                <button id="similar-btn"></button>
+              </div>
+              <div id="card2-2">
+                <h4 style="margin-top: 15px">Common Phrases :</h4>
+                <div class="text_editor_bx mb-4" id="result-1"></div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='/lib/jquery/jquery.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='/lib/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='/lib/bs-custom-file-input/bs-custom-file-input.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='/js/main.min.js') }}"></script>
+
+    <script>
+      const result1 = document.getElementById("result-1");
+      const similar_btn = document.getElementById("similar-btn");
+      const card2 = document.getElementById("card2");
+      const card2_2 = document.getElementById("card2-2");
+
+      $(document).on("click", "#logout", function (e) {
+        e.preventDefault();
+        location.href = "/";
+      });
+
+      bsCustomFileInput.init();
+
+      async function extractText_doc(file) {
+        const arrayBuffer = await readFileAsArrayBuffer(file);
+        const result = await mammoth.extractRawText({ arrayBuffer });
+        return result.value;
+      }
+
+      function readFileAsArrayBuffer(file) {
+        return new Promise((resolve, reject) => {
+          const reader = new FileReader();
+
+          reader.onload = function (e) {
+            resolve(e.target.result);
+          };
+
+          reader.onerror = function (error) {
+            reject(error);
+          };
+
+          reader.readAsArrayBuffer(file);
+        });
+      }
+
+      async function extractText_pdf(file) {
+        const dataBuffer = await readFileAsArrayBuffer(file);
+        const data = new Uint8Array(dataBuffer);
+
+        const pdf = await pdfjsLib.getDocument(data).promise;
+        const numPages = pdf.numPages;
+
+        let text = "";
+
+        for (let pageNum = 1; pageNum <= numPages; pageNum++) {
+          const page = await pdf.getPage(pageNum);
+          const content = await page.getTextContent();
+          text += content.items.map((item) => item.str).join(" ");
+        }
+        return text;
+      }
+
+      function getFileExtension(fileName) {
+        return fileName.slice(((fileName.lastIndexOf(".") - 1) >>> 0) + 2);
+      }
+
+      document
+        .getElementById("upload-form")
+        .addEventListener("submit", async function (event) {
+          event.preventDefault();
+		  result1.innerHTML=''
+          var fileInput = document.getElementById("customFile");
+          const numberOfFiles = fileInput.files.length;
+          let data = {};
+          for (let i = 0; i < numberOfFiles; i++) {
+            ext = getFileExtension(fileInput.files[i].name);
+            if (ext == "pdf") {
+              text = await extractText_pdf(fileInput.files[i]);
+              data[i] = text;
+            } else {
+              text = await extractText_doc(fileInput.files[i]);
+              data[i] = text;
+            }
+          }
+          var json_data = JSON.stringify(data);
+          fetch("/upload", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: json_data,	
+          })
+            .then((response) => response.json())
+            .then((data) => {
+              card2.style.display = "block";
+              similar_btn.innerHTML = data["similarity"] + " %";
+              data["sequence"].forEach((items) => {
+				result1.innerHTML += `<span class="highlight">${items}</span>`; 
+              });
+            })
+            .catch((error) => {
+              console.error("Error:", error);
+            });
+        });
+    </script>
+  </body>
+</html>

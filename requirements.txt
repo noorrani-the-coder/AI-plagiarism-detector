@@ -1,0 +1,6 @@
+PyPDF2
+docx2txt
+nltk
+spacy
+scikit-learn
+nltk
